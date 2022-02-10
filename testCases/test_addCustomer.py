@@ -17,13 +17,14 @@ class Test_003_AddCustomer:
     @pytest.mark.sanity
     def test_addCustomer(self,setup):
         self.logger.info("************* Test_003_AddCustomer **********")
-        self.driver=setup
+        self.driver= setup
         self.driver.get(self.baseURL)
         self.driver.maximize_window()
 
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
+        time.sleep(3)
         self.lp.clickLogin()
         self.logger.info("************* Login succesful **********")
 
@@ -42,12 +43,14 @@ class Test_003_AddCustomer:
         self.addcust.setEmail(self.email)
         self.addcust.setPassword("test123")
         self.addcust.setCustomerRoles("Guests")
+        time.sleep(2)
         self.addcust.setManagerOfVendor("Vendor 2")
         self.addcust.setGender("Male")
         self.addcust.setFirstName("Pavan")
         self.addcust.setLastName("Kumar")
         self.addcust.setDob("7/05/1985")  # Format: D / MM / YYY
         self.addcust.setCompanyName("busyQA")
+        time.sleep(2)
         self.addcust.setAdminContent("This is for testing.........")
         self.addcust.clickOnSave()
 
